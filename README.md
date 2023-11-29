@@ -14,3 +14,4 @@ This is a starter repo for any laravel project that uses the following services:
 ## Suggestions
 
 -   [MDI](https://pictogrammers.com/library/mdi/) for SVG icons
+-   [Here's](https://arc.net/folder/78541B51-3440-4F15-9877-AF76A2D92706) my full Arc folder of packages I like to use.
