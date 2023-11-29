@@ -11,6 +11,6 @@ This is a starter repo for any laravel project that uses the following services:
 -   [DaisyUI](https://daisyui.com/docs/install/)
     -   Which is a wrapper of [Tailwind CSS](https://tailwindcss.com/docs/guides/laravel)
 
-## Suggested add-ons
+## Suggestions
 
 -   [MDI](https://pictogrammers.com/library/mdi/) for SVG icons
