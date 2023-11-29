@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Spatie\LaravelMarkdown\MarkdownRenderer;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function (MarkdownRenderer $markdownRenderer) {
+    return view('welcome', [
+        'readme' => $markdownRenderer->toHtml(file_get_contents(base_path('README.md')))
+    ]);
 });

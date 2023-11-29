@@ -5,3 +5,27 @@
 .container {
     @apply p-2 max-w-7xl m-auto;
 }
+
+.styled-html h1 {
+    @apply text-8xl font-bold;
+}
+
+.styled-html h2 {
+    @apply text-4xl font-bold;
+}
+
+.styled-html h3 {
+    @apply text-2xl;
+}
+
+.styled-html p {
+    @apply my-2;
+}
+
+.styled-html ul {
+    @apply list-disc ml-2;
+}
+
+.styled-html a {
+    @apply text-accent underline;
+}
