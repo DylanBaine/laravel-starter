@@ -2,6 +2,7 @@
 
 This is a starter repo for any laravel project that uses the following services:
 
+-   [Laravel Sail](https://laravel.com/docs/10.x/sail)
 -   [Filament PHP](https://filamentphp.com/)
     -   [With spatie media library plugin](https://github.com/filamentphp/spatie-laravel-media-library-plugin)
 -   [Artisan Extender](https://github.com/timwassenburg/laravel-artisan-extender)
