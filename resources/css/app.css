@@ -3,7 +3,11 @@
 @tailwind utilities;
 
 .container {
-    @apply p-2 max-w-7xl m-auto;
+    @apply p-2 max-w-7xl mx-auto;
+}
+
+.styled-html h1, .styled-html h2, .styled-html h3 {
+    @apply mt-2 mb-4;
 }
 
 .styled-html h1 {

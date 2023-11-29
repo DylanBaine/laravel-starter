@@ -1,3 +1,3 @@
-<div>
-    <!-- Do what you can, with what you have, where you are. - Theodore Roosevelt -->
-</div>
+<header class="p-4 bg-base-200">
+    <span class="brightness-150 font-bold">Header</span>
+</header>
