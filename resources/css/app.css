@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container {
+    @apply p-2 max-w-7xl m-auto;
+}
