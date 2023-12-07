@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Artisan;
 
 class MakeFeatureCommand extends Command
 {
@@ -25,6 +26,11 @@ class MakeFeatureCommand extends Command
      */
     public function handle()
     {
+        $model = $this->argument('model');
+        Artisan::call("make:model $model");
+        Artisan::call("make:filament-resource $model --view");
+        Artisan::call("make:service {$model}Service");
+        Artisan::call("make:repository {$model}");
         //
     }
 }
