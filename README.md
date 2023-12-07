@@ -1,5 +1,9 @@
 # Laravel Starter
 
+Install by running this command, replacing "project-name" with the folder you want your project to be in `git clone https://github.com/DylanBaine/laravel-starter.git --bare project-name`
+
+## Used Packages
+
 This is a starter repo for any laravel project that uses the following services:
 
 -   [Laravel Sail](https://laravel.com/docs/10.x/sail)
