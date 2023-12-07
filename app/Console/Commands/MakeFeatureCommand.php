@@ -27,7 +27,7 @@ class MakeFeatureCommand extends Command
     public function handle()
     {
         $model = $this->argument('model');
-        Artisan::call("make:model $model -m --api -c");
+        Artisan::call("make:model $model -all --api");
         Artisan::call("make:filament-resource $model --view");
         Artisan::call("make:service {$model}Service");
         Artisan::call("make:repository {$model}Repository");
