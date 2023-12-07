@@ -1,0 +1,10 @@
+<?php
+
+namespace {{ namespace }};
+
+use App\Repositories\ResourceRepositoryInterface;
+
+interface DummyClass extends ResourceRepositoryInterface
+{
+   // Extend with your methods
+}
