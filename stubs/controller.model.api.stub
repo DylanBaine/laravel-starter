@@ -5,7 +5,7 @@ namespace {{ namespace }};
 use {{ namespacedModel }};
 use {{ rootNamespace }}Http\Controllers\Controller;
 use {{ namespacedRequests }}
-use {{ rootNamespace }}\Services\{{ model }}Service;
+use {{ rootNamespace }}Services\{{ model }}Service;
 
 class {{ class }} extends Controller
 {
