@@ -30,7 +30,7 @@ class MakeFeatureCommand extends Command
         Artisan::call("make:model $model");
         Artisan::call("make:filament-resource $model --view");
         Artisan::call("make:service {$model}Service");
-        Artisan::call("make:repository {$model}Interface");
+        Artisan::call("make:repository {$model}Repository");
         //
     }
 }
