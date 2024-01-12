@@ -3,19 +3,15 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\LandingPageResource\Pages;
-use App\Filament\Resources\LandingPageResource\RelationManagers;
 use App\Models\LandingPage;
-use Filament\Forms;
 use Filament\Forms\Components\Builder;
 use Filament\Forms\Components\Builder\Block;
-use Filament\Forms\Components\Card;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
-use Filament\Tables\Columns\Column;
 use Filament\Tables\Table;
 
 class LandingPageResource extends Resource
@@ -24,9 +20,9 @@ class LandingPageResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    static function isEditing($form)
+    public static function isEditing($form)
     {
-        return $form->model && !is_string($form->model);
+        return $form->model && ! is_string($form->model);
     }
 
     public static function form(Form $form): Form
@@ -40,7 +36,7 @@ class LandingPageResource extends Resource
                     ->required()
                     ->afterStateUpdated(function ($set, ?string $state) use ($editing) {
                         if ($state) {
-                            if (!$editing) {
+                            if (! $editing) {
                                 $set('slug', str($state)->slug());
                             }
                             $set('name', str($state)->title());
@@ -63,14 +59,14 @@ class LandingPageResource extends Resource
                             ->schema([
                                 Section::make('')
                                     ->schema([
-                                        RichEditor::make('text')
+                                        RichEditor::make('text'),
                                     ])->columnSpan(1),
                                 Section::make('')
                                     ->schema([
                                         TextInput::make('image_url'),
                                         TextInput::make('image_description'),
                                     ])->columnSpan(1),
-                                    ]),
+                            ]),
                         Block::make('image_next_to_text')
                             ->columns(2)
                             ->schema([
@@ -81,10 +77,10 @@ class LandingPageResource extends Resource
                                     ])->columnSpan(1),
                                 Section::make('')
                                     ->schema([
-                                        RichEditor::make('text')
+                                        RichEditor::make('text'),
                                     ])->columnSpan(1),
-                            ])
-                    ])
+                            ]),
+                    ]),
             ]);
     }
 

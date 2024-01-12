@@ -2,12 +2,10 @@
 
 namespace App\Console\Commands;
 
-use Illuminate\Console\Command;
 use TimWassenburg\RepositoryGenerator\Console\MakeRepository;
 
 class MakeRepositoryCommand extends MakeRepository
 {
-
     /**
      * Get the stub file for the generator.
      *
@@ -15,6 +13,6 @@ class MakeRepositoryCommand extends MakeRepository
      */
     protected function getStub()
     {
-        return __DIR__ . '/../../../stubs/repository.stub';
+        return __DIR__.'/../../../stubs/repository.stub';
     }
 }

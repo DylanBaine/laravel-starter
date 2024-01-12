@@ -10,6 +10,6 @@ class LandingPage extends Model
     use HasFactory;
 
     protected $casts = [
-        'content_blocks' => 'array'
+        'content_blocks' => 'array',
     ];
 }

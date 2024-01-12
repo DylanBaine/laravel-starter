@@ -3,10 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\BlogPostResource\Pages;
-use App\Filament\Resources\BlogPostResource\RelationManagers;
 use App\Models\BlogPost;
-use Closure;
-use Filament\Forms;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
@@ -14,8 +11,6 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class BlogPostResource extends Resource
 {
@@ -23,14 +18,15 @@ class BlogPostResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    static function isEditing($form)
+    public static function isEditing($form)
     {
-        return $form->model && !is_string($form->model);
+        return $form->model && ! is_string($form->model);
     }
 
     public static function form(Form $form): Form
     {
         $editing = static::isEditing($form);
+
         return $form
             ->schema([
                 TextInput::make('title')
@@ -38,7 +34,7 @@ class BlogPostResource extends Resource
                     ->required()
                     ->afterStateUpdated(function ($set, ?string $state) use ($editing) {
                         if ($state) {
-                            if (!$editing) {
+                            if (! $editing) {
                                 $set('slug', str($state)->slug());
                             }
                             $set('title', str($state)->title());
@@ -48,7 +44,7 @@ class BlogPostResource extends Resource
                     ->readOnly($editing)
                     ->required(),
                 RichEditor::make('content')
-                    ->columnSpan(2)
+                    ->columnSpan(2),
             ]);
     }
 

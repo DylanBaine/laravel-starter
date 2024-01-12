@@ -7,8 +7,6 @@ use Illuminate\Support\Collection;
 
 interface ResourceRepositoryInterface
 {
-
-
     public function all(): Collection;
 
     public function create(array $attributes): Model;

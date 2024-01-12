@@ -7,5 +7,4 @@ namespace App\Services;
  */
 class BlogPostService
 {
-
 }

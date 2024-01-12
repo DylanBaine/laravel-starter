@@ -17,6 +17,6 @@ use Spatie\LaravelMarkdown\MarkdownRenderer;
 Route::get('/', function (MarkdownRenderer $markdownRenderer) {
     return view('welcome', [
         'readme' => cache()
-            ->remember('welcome-readme', 2, fn () => $markdownRenderer->toHtml(file_get_contents(base_path('README.md'))))
+            ->remember('welcome-readme', 2, fn () => $markdownRenderer->toHtml(file_get_contents(base_path('README.md')))),
     ]);
 });
