@@ -6,12 +6,17 @@ use App\Filament\Resources\LandingPageResource\Pages;
 use App\Models\LandingPage;
 use Filament\Forms\Components\Builder;
 use Filament\Forms\Components\Builder\Block;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
 class LandingPageResource extends Resource
@@ -49,7 +54,23 @@ class LandingPageResource extends Resource
                     ->label('Content')
                     ->columnSpan(2)
                     ->blocks([
-                        Block::make('Rich Editor')
+                        Block::make('hero')
+                            ->columns(1)
+                            ->schema([
+                                FileUpload::make('hero_image')
+                                    ->image()
+                                    ->imageEditor(),
+                                Select::make('layout')->options([
+                                    'image_left' => 'Image Left',
+                                    'image_right' => 'Image Right',
+                                    'image_above' => 'Image Above',
+                                    'image_background' => 'Background Image',
+                                ]),
+                                TextInput::make('h1'),
+                                Textarea::make('paragraph'),
+                                Toggle::make('show_cta'),
+                            ]),
+                        Block::make('rich_editor')
                             ->schema([
                                 RichEditor::make('html')
                                     ->label(''),
@@ -63,7 +84,9 @@ class LandingPageResource extends Resource
                                     ])->columnSpan(1),
                                 Section::make('')
                                     ->schema([
-                                        TextInput::make('image_url'),
+                                        FileUpload::make('image_url')
+                                            ->image()
+                                            ->imageEditor(),
                                         TextInput::make('image_description'),
                                     ])->columnSpan(1),
                             ]),
@@ -72,7 +95,9 @@ class LandingPageResource extends Resource
                             ->schema([
                                 Section::make('')
                                     ->schema([
-                                        TextInput::make('image_url'),
+                                        FileUpload::make('image_url')
+                                            ->image()
+                                            ->imageEditor(),
                                         TextInput::make('image_description'),
                                     ])->columnSpan(1),
                                 Section::make('')
@@ -80,6 +105,7 @@ class LandingPageResource extends Resource
                                         RichEditor::make('text'),
                                     ])->columnSpan(1),
                             ]),
+
                     ]),
             ]);
     }
@@ -88,7 +114,8 @@ class LandingPageResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('name'),
+                TextColumn::make('slug'),
             ])
             ->filters([
                 //

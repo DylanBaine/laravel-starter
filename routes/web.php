@@ -1,5 +1,6 @@
 <?php
 
+use App\Services\LandingPageService;
 use Illuminate\Support\Facades\Route;
 use Spatie\LaravelMarkdown\MarkdownRenderer;
 
@@ -18,5 +19,11 @@ Route::get('/', function (MarkdownRenderer $markdownRenderer) {
     return view('welcome', [
         'readme' => cache()
             ->remember('welcome-readme', 2, fn () => $markdownRenderer->toHtml(file_get_contents(base_path('README.md')))),
+    ]);
+});
+
+Route::get('{slug}', function (string $slug, LandingPageService $landingPageService) {
+    return view('landing-page', [
+        'page' => $landingPageService->findLandingPage($slug),
     ]);
 });

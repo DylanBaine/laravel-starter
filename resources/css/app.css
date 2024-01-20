@@ -33,3 +33,11 @@
 .styled-html a {
     @apply text-accent underline;
 }
+
+.styled-html blockquote {
+    @apply p-4 border-l-2 border-l-accent brightness-125 ml-4 italic
+}
+
+.styled-html .hero h1 {
+    @apply text-5xl
+}
