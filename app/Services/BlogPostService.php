@@ -10,7 +10,7 @@ use Illuminate\Contracts\Pagination\LengthAwarePaginator;
  */
 class BlogPostService
 {
-    public function getPaginatedPosts(int $perPage, int $page): LengthAwarePaginator
+    public function getPaginatedPosts(int $perPage = null, int $page = null): LengthAwarePaginator
     {
         return BlogPost::query()->paginate($perPage, ['*'], 'page', $page);
     }

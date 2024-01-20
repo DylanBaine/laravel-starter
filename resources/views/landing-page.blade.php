@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout title="{{ $page->name }}">
     <main>
         @foreach ($page->content_blocks as $key => $block)
             <section @if ($key > 0) class="mb-24" @endif>

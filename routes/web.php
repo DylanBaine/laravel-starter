@@ -1,6 +1,8 @@
 <?php
 
+use App\Services\BlogPostService;
 use App\Services\LandingPageService;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Spatie\LaravelMarkdown\MarkdownRenderer;
 
@@ -25,5 +27,11 @@ Route::get('/', function (MarkdownRenderer $markdownRenderer) {
 Route::get('{slug}', function (string $slug, LandingPageService $landingPageService) {
     return view('landing-page', [
         'page' => $landingPageService->findLandingPage($slug),
+    ]);
+});
+
+Route::get('/blog', function (Request $request, BlogPostService $blogPostService) {
+    return view('blog-list', [
+        'posts' => $blogPostService->getPaginatedPosts($request->perPage ?? 12, $request->page ?? 1),
     ]);
 });
