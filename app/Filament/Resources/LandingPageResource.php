@@ -54,7 +54,7 @@ class LandingPageResource extends Resource
                         Action::make('preview')
                             ->icon('heroicon-o-link')
                             ->url(function ($state) {
-                                return url($state);
+                                return $state ? url($state) : '_preview';
                             }, true)
                     )
                     ->required(),
