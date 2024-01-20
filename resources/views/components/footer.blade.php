@@ -9,7 +9,7 @@
     </div>
     <div class="p-2 bg-base-300">
         <div class="max-w-7xl mx-auto">
-            &copy; - {{ date('Y') }}
+            &copy; {{ config('app.name') }} - {{ date('Y') }}
         </div>
     </div>
 </footer>
