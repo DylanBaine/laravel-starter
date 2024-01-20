@@ -1,6 +1,6 @@
-@props(['title', 'canonical', 'previewImage', 'noHeader', 'noFooter'])
+@props(['title', 'canonical', 'previewImage', 'noHeader', 'noFooter', 'theme'])
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="{{ $theme ?? 'light' }}">
 
 <head>
     <meta charset="UTF-8">
