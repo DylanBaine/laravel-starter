@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\LandingPageResource\Pages;
 use App\Models\LandingPage;
+use Filament\Forms\Components\Actions\Action;
 use Filament\Forms\Components\Builder;
 use Filament\Forms\Components\Builder\Block;
 use Filament\Forms\Components\FileUpload;
@@ -49,6 +50,13 @@ class LandingPageResource extends Resource
                     }),
                 TextInput::make('slug')
                     ->readOnly($editing)
+                    ->suffixAction(
+                        Action::make('preview')
+                            ->icon('heroicon-o-link')
+                            ->url(function ($state) {
+                                return url($state);
+                            }, true)
+                    )
                     ->required(),
                 Builder::make('content_blocks')
                     ->label('Content')

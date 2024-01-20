@@ -63,11 +63,13 @@
                     background-position: center;
                     ">
                     <div class="flex items-center justify-center h-full" style="background-color: rgba(0,0,0, .4)">
-                        <div class="brightness-200" style="text-shadow: 0px 0px 4px rgba(0,0,0,.5)">
-                            <h1>{{ $data['h1'] }}</h1>
-                            <p>
-                                {{ $data['paragraph'] }}
-                            </p>
+                        <div style="text-shadow: 0px 0px 4px rgba(0,0,0,.5)">
+                            <div class="brightness-200">
+                                <h1>{{ $data['h1'] }}</h1>
+                                <p>
+                                    {{ $data['paragraph'] }}
+                                </p>
+                            </div>
                             @if ($showCta)
                                 <div class="mt-4">
                                     <x-content-block.call_to_action />
