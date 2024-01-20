@@ -1,5 +1,9 @@
 @props(['data'])
 
+@php
+    $showCta = $data['show_cta'];
+@endphp
+
 <div class="styled-html">
     <div class="hero">
         @switch($data['layout'])
@@ -9,17 +13,26 @@
                         'image_url' => $data['hero_image'],
                         'text' => '<h1>' . $data['h1'] . '</h1><p>' . $data['paragraph'] . '</p>',
                     ]" />
+                    @if ($showCta)
+                        <div class="mt-4">
+                            <x-content-block.call_to_action />
+                        </div>
+                    @endif
                     <hr class="mt-4 mb-6 max-w-[100px] md:max-w-xl mx-auto opacity-50">
                 </div>
             @break
 
             @case('image_right')
                 <div class="mt-2 max-w-3xl mx-auto py-12">
-
                     <x-content-block.text_next_to_image :data="[
                         'image_url' => $data['hero_image'],
                         'text' => '<h1>' . $data['h1'] . '</h1><p>' . $data['paragraph'] . '</p>',
                     ]" />
+                    @if ($showCta)
+                        <div class="mt-4">
+                            <x-content-block.call_to_action />
+                        </div>
+                    @endif
                     <hr class="mt-4 mb-6 max-w-[100px] md:max-w-xl mx-auto opacity-50">
                 </div>
             @break
@@ -32,12 +45,17 @@
                     <p>
                         {{ $data['paragraph'] }}
                     </p>
+                    @if ($showCta)
+                        <div class="mt-4">
+                            <x-content-block.call_to_action />
+                        </div>
+                    @endif
                     <hr class="mt-4 mb-6 max-w-[100px] md:max-w-xl mx-auto opacity-50">
                 </div>
             @break
 
             @case('image_background')
-                <div class="h-[50vh] w-full"
+                <div class="h-[50vh] w-full mb-4"
                     style="
                     background-image: url('{{ url('/media/' . $data['hero_image']) }}');
                     background-repeat: no-repeat;
@@ -45,11 +63,16 @@
                     background-position: center;
                     ">
                     <div class="flex items-center justify-center h-full" style="background-color: rgba(0,0,0, .4)">
-                        <div class="brightness-200" style="text-shadow: 0px 0px 4px black">
+                        <div class="brightness-200" style="text-shadow: 0px 0px 4px rgba(0,0,0,.5)">
                             <h1>{{ $data['h1'] }}</h1>
                             <p>
                                 {{ $data['paragraph'] }}
                             </p>
+                            @if ($showCta)
+                                <div class="mt-4">
+                                    <x-content-block.call_to_action />
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>

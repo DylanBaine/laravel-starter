@@ -105,7 +105,10 @@ class LandingPageResource extends Resource
                                         RichEditor::make('text'),
                                     ])->columnSpan(1),
                             ]),
-                        Block::make('call_to_action'),
+                        Block::make('call_to_action')
+                            ->schema([
+                                TextInput::make('text'),
+                            ]),
                     ]),
             ]);
     }
