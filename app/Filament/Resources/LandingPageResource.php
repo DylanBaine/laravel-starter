@@ -3,17 +3,11 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\LandingPageResource\Pages;
+use App\Filament\SharedBlocks;
 use App\Models\LandingPage;
 use Filament\Forms\Components\Actions\Action;
 use Filament\Forms\Components\Builder;
-use Filament\Forms\Components\Builder\Block;
-use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\RichEditor;
-use Filament\Forms\Components\Section;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -62,69 +56,12 @@ class LandingPageResource extends Resource
                     ->label('Content')
                     ->columnSpan(2)
                     ->blocks([
-                        Block::make('hero')
-                            ->columns(1)
-                            ->schema([
-                                FileUpload::make('hero_image')
-                                    ->image()
-                                    ->imageEditor(),
-                                Select::make('layout')->options([
-                                    'image_left' => 'Image Left',
-                                    'image_right' => 'Image Right',
-                                    'image_above' => 'Image Above',
-                                    'image_background' => 'Background Image',
-                                ]),
-                                TextInput::make('h1'),
-                                Textarea::make('paragraph'),
-                                Toggle::make('show_cta'),
-                            ]),
-                        Block::make('rich_editor')
-                            ->schema([
-                                RichEditor::make('html')
-                                    ->label(''),
-                            ]),
-                        Block::make('text_next_to_image')
-                            ->columns(2)
-                            ->schema([
-                                Section::make('')
-                                    ->schema([
-                                        RichEditor::make('text'),
-                                    ])->columnSpan(1),
-                                Section::make('')
-                                    ->schema([
-                                        FileUpload::make('image_url')
-                                            ->image()
-                                            ->imageEditor(),
-                                        TextInput::make('image_description'),
-                                    ])->columnSpan(1),
-                            ]),
-                        Block::make('image_next_to_text')
-                            ->columns(2)
-                            ->schema([
-                                Section::make('')
-                                    ->schema([
-                                        FileUpload::make('image_url')
-                                            ->image()
-                                            ->imageEditor(),
-                                        TextInput::make('image_description'),
-                                    ])->columnSpan(1),
-                                Section::make('')
-                                    ->schema([
-                                        RichEditor::make('text'),
-                                    ])->columnSpan(1),
-                            ]),
-                        Block::make('call_to_action')
-                            ->schema([
-                                TextInput::make('text'),
-                            ]),
-                        Block::make('quote')
-                            ->schema([
-                                TextInput::make('name'),
-                                FileUpload::make('image')
-                                    ->image()
-                                    ->imageEditor(),
-                                RichEditor::make('content'),
-                            ]),
+                        SharedBlocks::hero(),
+                        SharedBlocks::richEditor(),
+                        SharedBlocks::textNextToImage(),
+                        SharedBlocks::imageNextToText(),
+                        SharedBlocks::callToAction(),
+                        SharedBlocks::quote(),
                     ]),
             ]);
     }
