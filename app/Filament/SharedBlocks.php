@@ -2,6 +2,7 @@
 
 namespace App\Filament;
 
+use Filament\Forms\Components\Builder;
 use Filament\Forms\Components\Builder\Block;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
@@ -97,6 +98,29 @@ class SharedBlocks
                 TextInput::make('h1'),
                 Textarea::make('paragraph'),
                 Toggle::make('show_cta'),
+            ]);
+    }
+
+    public static function row()
+    {
+        return Block::make('row')
+            ->schema([
+                Select::make('columns')->options([
+                    1 => 1,
+                    2 => 2,
+                    3 => 3,
+                ]),
+                Builder::make('content_blocks')
+                    ->label('Content')
+                    ->columnSpan(2)
+                    ->blocks([
+                        SharedBlocks::hero(),
+                        SharedBlocks::richEditor(),
+                        SharedBlocks::textNextToImage(),
+                        SharedBlocks::imageNextToText(),
+                        SharedBlocks::callToAction(),
+                        SharedBlocks::quote(),
+                    ]),
             ]);
     }
 }

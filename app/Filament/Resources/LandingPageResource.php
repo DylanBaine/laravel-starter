@@ -62,6 +62,7 @@ class LandingPageResource extends Resource
                         SharedBlocks::imageNextToText(),
                         SharedBlocks::callToAction(),
                         SharedBlocks::quote(),
+                        SharedBlocks::row(),
                     ]),
             ]);
     }
