@@ -41,5 +41,5 @@ module.exports = {
             "sunset",
         ]
     },
-    plugins: [require("daisyui")],
+    plugins: [require("daisyui"), require('@tailwindcss/typography'),],
 };

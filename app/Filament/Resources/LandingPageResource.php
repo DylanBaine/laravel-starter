@@ -117,6 +117,14 @@ class LandingPageResource extends Resource
                             ->schema([
                                 TextInput::make('text'),
                             ]),
+                        Block::make('quote')
+                            ->schema([
+                                TextInput::make('name'),
+                                FileUpload::make('image')
+                                    ->image()
+                                    ->imageEditor(),
+                                RichEditor::make('content'),
+                            ]),
                     ]),
             ]);
     }
