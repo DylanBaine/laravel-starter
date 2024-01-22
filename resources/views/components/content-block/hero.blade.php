@@ -22,7 +22,6 @@
                             <x-content-block.call_to_action />
                         </div>
                     @endif
-                    <hr class="mt-4 mb-6 max-w-[100px] md:max-w-xl mx-auto opacity-50">
                 </div>
             @break
 
@@ -37,7 +36,6 @@
                             <x-content-block.call_to_action />
                         </div>
                     @endif
-                    <hr class="mt-4 mb-6 max-w-[100px] md:max-w-xl mx-auto opacity-50">
                 </div>
             @break
 
@@ -54,7 +52,6 @@
                             <x-content-block.call_to_action />
                         </div>
                     @endif
-                    <hr class="mt-4 mb-6 max-w-[100px] md:max-w-xl mx-auto opacity-50">
                 </div>
             @break
 
