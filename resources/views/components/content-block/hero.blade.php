@@ -5,7 +5,11 @@
 @endphp
 
 <div class="styled-html">
-    <div class="hero">
+    <div class="hero"
+        style="
+            background-size: 30em;
+            background-image: url(https://www.transparenttextures.com/patterns/asfalt-dark.png)
+        ">
         @switch($data['layout'])
             @case('image_left')
                 <div class="mt-4 max-w-4xl mx-auto py-12 px-4">
@@ -55,7 +59,7 @@
             @break
 
             @case('image_background')
-                <div class="h-[50vh] w-full mb-4"
+                <div class="h-[50vh] w-full"
                     style="
                     background-image: url('{{ url('/media/' . $data['hero_image']) }}');
                     background-repeat: no-repeat;
