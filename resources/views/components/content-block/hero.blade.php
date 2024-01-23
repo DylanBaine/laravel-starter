@@ -47,7 +47,7 @@
                     @endisset
                     <h1>{{ $data['h1'] }}</h1>
                     <p>
-                        {{ $data['paragraph'] }}
+                        {!! $data['paragraph'] !!}
                     </p>
                     @if ($showCta)
                         <div class="mt-4">
@@ -71,7 +71,7 @@
                             <div class="brightness-200 p-4 mx-auto max-w-4xl">
                                 <h1 class="text-white">{{ $data['h1'] }}</h1>
                                 <p class="text-white">
-                                    {{ $data['paragraph'] }}
+                                    {!! $data['paragraph'] !!}
                                 </p>
                             </div>
                             @if ($showCta)
