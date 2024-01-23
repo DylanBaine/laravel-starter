@@ -45,7 +45,9 @@
                         <img class="m-auto rounded-xl shadow-xl" src="{{ url('/media/' . $data['hero_image']) }}" alt=""
                             srcset="">
                     @endisset
-                    <h1>{{ $data['h1'] }}</h1>
+                    @isset($data['h1'])
+                        <h1>{{ $data['h1'] }}</h1>
+                    @endisset
                     <p>
                         {!! $data['paragraph'] !!}
                     </p>
