@@ -56,14 +56,14 @@
             @break
 
             @case('image_background')
-                <div class="min-h-[50vh] w-full py-4"
+                <div class="min-h-[50vh] w-full"
                     style="
                     background-image: url('{{ url('/media/' . $data['hero_image']) }}');
                     background-repeat: no-repeat;
                     background-size: cover;
                     background-position: center;
                     ">
-                    <div class="flex items-center justify-center h-full" style="background-color: rgba(0,0,0, .4)">
+                    <div class="flex items-center justify-center h-full py-4" style="background-color: rgba(0,0,0, .4)">
                         <div style="text-shadow: 0px 0px 4px rgba(0,0,0,.5)">
                             <div class="brightness-200 p-4 mx-auto max-w-4xl">
                                 <h1 class="text-white">{{ $data['h1'] }}</h1>
