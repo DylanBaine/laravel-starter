@@ -7,12 +7,12 @@
             <span class="text-[10em] leading-[.7em] absolute top-0 right-0 opacity-20 font-serif">&rdquo;</span>
         </div>
         <div class="pl-8 pr-6 py-6 pt-3 relative z-20 brightness-150 font-semibold">
-            <div class="grid grid-cols-2 gap-2">
+            <div class="grid sm:grid-cols-2 gap-2">
                 @if ($hasImage = isset($data['image']) || isset($data['name']))
-                    <div class="flex items-center">
+                    <div class="flex items-center justify-center mt-6 md:mt-0">
                         <div>
-                            <img class="rounded-full shadow-xl mx-auto w-[120px] h-[120px] md:w-[200px] md:h-[200px] object-cover"
-                                width="200px" src="{{ url("/media/{$data['image']}") }}" alt="">
+                            <img class="rounded-full shadow-xl mx-auto w-[200px] h-[200px] object-cover" width="200px"
+                                src="{{ url("/media/{$data['image']}") }}" alt="">
                             @isset($data['name'])
                                 <div class="font-bold text-lg text-center mt-2">{{ $data['name'] }}</div>
                             @endisset
