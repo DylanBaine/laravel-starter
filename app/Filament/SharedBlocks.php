@@ -8,7 +8,6 @@ use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 
@@ -96,7 +95,7 @@ class SharedBlocks
                     'image_background' => 'Background Image',
                 ]),
                 TextInput::make('h1'),
-                Textarea::make('paragraph'),
+                RichEditor::make('paragraph'),
                 Toggle::make('show_cta'),
             ]);
     }
