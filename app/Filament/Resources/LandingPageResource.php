@@ -7,10 +7,12 @@ use App\Filament\SharedBlocks;
 use App\Models\LandingPage;
 use Filament\Forms\Components\Actions\Action;
 use Filament\Forms\Components\Builder;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\Layout\Stack;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -52,6 +54,11 @@ class LandingPageResource extends Resource
                             }, true)
                     )
                     ->required(),
+                Select::make('status')->options([
+                    'draft' => 'Draft',
+                    'reviewing' => 'Reviewing',
+                    'published' => 'Published',
+                ]),
                 Builder::make('content_blocks')
                     ->label('Content')
                     ->columnSpan(2)
@@ -70,9 +77,14 @@ class LandingPageResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->contentGrid([
+                'md' => 3,
+            ])
             ->columns([
-                TextColumn::make('name'),
-                TextColumn::make('slug'),
+                Stack::make([
+                    TextColumn::make('name'),
+                    TextColumn::make('slug'),
+                ]),
             ])
             ->filters([
                 //
