@@ -56,7 +56,7 @@
             @break
 
             @case('image_background')
-                <div class="h-[50vh] w-full"
+                <div class="min-h-[50vh] w-full"
                     style="
                     background-image: url('{{ url('/media/' . $data['hero_image']) }}');
                     background-repeat: no-repeat;
