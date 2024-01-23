@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\LandingPage;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 
 /**
@@ -10,16 +11,21 @@ use Illuminate\Support\Collection;
  */
 class LandingPageService
 {
+    protected function published(): Builder
+    {
+        return LandingPage::query()->whereStatus('published');
+    }
+
     /**
      * @return Collection<LandingPage>
      */
     public function getAllLandingPages(): Collection
     {
-        return LandingPage::query()->get();
+        return $this->published()->get();
     }
 
     public function findLandingPage(string $slug): LandingPage
     {
-        return LandingPage::query()->where('slug', $slug)->firstOrFail();
+        return $this->published()->where('slug', $slug)->firstOrFail();
     }
 }

@@ -12,7 +12,6 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
-use Filament\Tables\Columns\Layout\Stack;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -77,14 +76,9 @@ class LandingPageResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->contentGrid([
-                'md' => 3,
-            ])
             ->columns([
-                Stack::make([
-                    TextColumn::make('name'),
-                    TextColumn::make('slug'),
-                ]),
+                TextColumn::make('name'),
+                TextColumn::make('slug'),
             ])
             ->filters([
                 //
