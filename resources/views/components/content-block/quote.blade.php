@@ -10,11 +10,13 @@
             <div class="grid grid-cols-2 gap-2">
                 @if ($hasImage = isset($data['image']) || isset($data['name']))
                     <div class="flex items-center">
-                        <img class="rounded-full shadow-xl mx-auto w-[120px] h-[120px] md:w-[200px] md:h-[200px] object-cover"
-                            width="200px" src="{{ url("/media/{$data['image']}") }}" alt="">
-                        @isset($data['name'])
-                            <div class="font-bold text-lg text-center mt-2">{{ $data['name'] }}</div>
-                        @endisset
+                        <div>
+                            <img class="rounded-full shadow-xl mx-auto w-[120px] h-[120px] md:w-[200px] md:h-[200px] object-cover"
+                                width="200px" src="{{ url("/media/{$data['image']}") }}" alt="">
+                            @isset($data['name'])
+                                <div class="font-bold text-lg text-center mt-2">{{ $data['name'] }}</div>
+                            @endisset
+                        </div>
                     </div>
                 @endif
                 <div class="prose flex items-center {{ $hasImage ? 'col-span-1' : 'col-span-2' }}">
