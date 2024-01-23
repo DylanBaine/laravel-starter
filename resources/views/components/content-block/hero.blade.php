@@ -41,8 +41,10 @@
 
             @case('image_above')
                 <div class="text-center mt-2 max-w-3xl mx-auto py-12 px-4">
-                    <img class="m-auto rounded-xl shadow-xl" src="{{ url('/media/' . $data['hero_image']) }}" alt=""
-                        srcset="">
+                    @isset($data['hero_image'])
+                        <img class="m-auto rounded-xl shadow-xl" src="{{ url('/media/' . $data['hero_image']) }}" alt=""
+                            srcset="">
+                    @endisset
                     <h1>{{ $data['h1'] }}</h1>
                     <p>
                         {{ $data['paragraph'] }}
