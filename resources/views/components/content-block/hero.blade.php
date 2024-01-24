@@ -72,9 +72,9 @@
                         <div style="text-shadow: 0px 0px 4px rgba(0,0,0,.5)">
                             <div class="brightness-200 p-4 mx-auto max-w-4xl">
                                 <h1 class="text-white">{{ $data['h1'] }}</h1>
-                                <p class="text-white">
+                                <div class="text-white">
                                     {!! $data['paragraph'] !!}
-                                </p>
+                                </div>
                             </div>
                             @if ($showCta)
                                 <div class="mt-4">
